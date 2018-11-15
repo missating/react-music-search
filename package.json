@@ -1,0 +1,29 @@
+{
+  "name": "react-playlist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/missating/react-playlist.git",
+  "author": "Vanessa Ating <atingenkay@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html --open"
+  },
+  "dependencies": {
+    "components": "^0.1.0",
+    "node-sass": "^4.10.0",
+    "parcel-bundler": "^1.10.3",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-router-dom": "^4.3.1",
+    "spotify-web-api-js": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}
