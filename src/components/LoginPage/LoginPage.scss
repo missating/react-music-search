@@ -1,0 +1,41 @@
+.login__container {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assests/background.jpg);
+  height: 100vh; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+  }
+
+  &__btn {
+    width: 15rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    border:0.1rem solid #fee15e;
+    background-color: transparent;
+    color: #ffffff;
+    outline: none;
+
+
+    &:hover {
+      background-color: #fee15e;
+      color: #000000;
+    }
+  }
+
+  &__intro-text {
+    font-size: 2rem;
+    color: #ffffff;
+    word-spacing: 0.2rem;
+  }
+}

@@ -5,6 +5,8 @@ import React from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { Redirect } from 'react-router-dom';
 
+// styles
+import './LoginPage.scss';
 
 class LoginPage extends React.PureComponent {
   constructor(props) {
@@ -38,15 +40,22 @@ class LoginPage extends React.PureComponent {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="login__container">
         {
           this.state.loggedIn
             ? <Redirect to="/search" />
-            : <a href='http://localhost:8888'>
-              <button>Login with Spotify</button>
-            </a>
+            : <div className="login__container__content">
+              <a href='http://localhost:8888'>
+                <button className="login__container__btn">
+                  Connect To Spotify
+                </button>
+              </a>
+              <h2 className="login__container__intro-text">
+                Where Music happens
+              </h2>
+            </div>
         }
-      </React.Fragment>
+      </div>
     )
   }
 }
