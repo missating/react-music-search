@@ -3,9 +3,13 @@ import React from 'react';
 // styles
 import './SearchPage.scss';
 
+// components
+import MusicProfile from '../MusicProfile';
+
 class SearchPage extends React.PureComponent {
   state = {
     searchQuery: '',
+    artist: null,
   };
 
   handleInputChange = (event) => {
@@ -20,7 +24,7 @@ class SearchPage extends React.PureComponent {
 
   onSearch = () => {
     const baseUrl = "https://api.spotify.com/v1/search?"
-    const fetchUrl = `${baseUrl}q=${this.state.searchQuery}&type=artist,album,track&limit=1`
+    const fetchUrl = `${baseUrl}q=${this.state.searchQuery}&type=artist&limit=1`
     fetch(fetchUrl, {
       method: 'GET',
       mode: "cors",
@@ -30,7 +34,10 @@ class SearchPage extends React.PureComponent {
       cache: 'default'
     })
       .then(response => response.json())
-      .then(json => console.log('=========', json))
+      .then(json => {
+        const artist = json.artists.items[0]
+        this.setState({ artist })
+      })
   }
 
   render() {
@@ -41,7 +48,7 @@ class SearchPage extends React.PureComponent {
           <input
             type="text"
             className="container__search-bar__content"
-            placeholder="Search..."
+            placeholder="Search for Music by title"
             value={this.state.searchQuery}
             onChange={this.handleInputChange}
             onKeyPress={this.onKeyPress}
@@ -50,9 +57,13 @@ class SearchPage extends React.PureComponent {
             className="container__search-bar__btn"
             onClick={() => this.onSearch()}
           >
-            Search
+            Submit
           </button>
         </div>
+
+        <MusicProfile
+          artist={this.state.artist}
+        />
       </div>
     )
   }
