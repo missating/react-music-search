@@ -12,9 +12,9 @@ const MusicProfile = (props) => {
 
   return (
     <div>
-      <img src={artist.images[0].url} />
+      <img src={artist.images[0].url} alt="profile-picture"/>
       <p>{artist.name}</p>
-      <p>{artist.followers.total}</p>
+      <p>{artist.followers.total} followers</p>
       <div>
         {
           artist.genres.map((genre, index) => {

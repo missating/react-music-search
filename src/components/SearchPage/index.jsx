@@ -5,11 +5,13 @@ import './SearchPage.scss';
 
 // components
 import MusicProfile from '../MusicProfile';
+import Tracks from '../Tracks';
 
 class SearchPage extends React.PureComponent {
   state = {
     searchQuery: '',
     artist: null,
+    tracks: []
   };
 
   handleInputChange = (event) => {
@@ -23,8 +25,10 @@ class SearchPage extends React.PureComponent {
   }
 
   onSearch = () => {
-    const baseUrl = "https://api.spotify.com/v1/search?"
-    const fetchUrl = `${baseUrl}q=${this.state.searchQuery}&type=artist&limit=1`
+    const baseUrl = "https://api.spotify.com/v1/search?";
+    let fetchUrl = `${baseUrl}q=${this.state.searchQuery}&type=artist&limit=1`;
+    const albumUrl = 'https://api.spotify.com/v1/artists/';
+
     fetch(fetchUrl, {
       method: 'GET',
       mode: "cors",
@@ -36,7 +40,22 @@ class SearchPage extends React.PureComponent {
       .then(response => response.json())
       .then(json => {
         const artist = json.artists.items[0]
-        this.setState({ artist })
+        this.setState({ artist });
+
+        fetchUrl = `${albumUrl}${artist.id}/top-tracks?country=US&`
+        fetch(fetchUrl, {
+          method: 'GET',
+          mode: "cors",
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          },
+          cache: 'default'
+        })
+          .then(response => response.json())
+          .then(json => {
+            const { tracks } = json;
+            this.setState({ tracks });
+          })
       })
   }
 
@@ -60,9 +79,14 @@ class SearchPage extends React.PureComponent {
             Submit
           </button>
         </div>
-
-        <MusicProfile
-          artist={this.state.artist}
+        {
+          this.state.artist &&
+          <MusicProfile
+            artist={this.state.artist}
+          />
+        }
+        <Tracks
+          tracks={this.state.tracks}
         />
       </div>
     )
