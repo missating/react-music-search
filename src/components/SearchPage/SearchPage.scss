@@ -1,44 +1,38 @@
-$background: #000;
+$background: #000000;
 $color: #fff;
 $btn-color: #ddd;
 
 html,
 body {
-  height: 100%;
-  margin: 0 auto;
+  height: 100vh;
+  color: $color;
+  background: $background;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 3rem;
-  flex-direction: column;
+  padding: 3rem 5rem 0 5rem;
 
   &__heading {
-    padding: 3rem;
-    font-size: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
   }
 
   &__search-bar {
     &__content {
-      padding: 0.3rem;
-      width: 15rem;
-      height: 2rem;
+      box-sizing: border-box;
+      font-size: 1rem;
       border: none;
+      border-bottom: 0.12rem solid $color;
+      padding: 0.2rem;
+      width: 100%;
+      height: 3rem;
+      background: transparent;
       outline: none;
-      font-size: 1.06rem;
+      color: $color;
     }
 
     &__btn {
-      padding: 0.3rem;
-      width: 5rem;
-      height: 2.6rem;
-      background-color: $btn-color;
-      cursor: pointer;
-      outline: none;
-      border: none;
-      font-size: 1.06rem;
+      display: none;
     }
   }
 }

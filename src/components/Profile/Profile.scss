@@ -1,0 +1,14 @@
+.music__profile-container {
+  display: flex;
+  justify-content: space-around;
+  color: #ffffff;
+  flex-direction: row;
+  align-items: center;
+  margin: 5em;
+  width: 50rem;
+
+  &__image img {
+    width: 20rem;
+    border-radius: 100%;
+  }
+}

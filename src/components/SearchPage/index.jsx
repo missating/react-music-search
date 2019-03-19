@@ -4,7 +4,7 @@ import React from 'react';
 import './SearchPage.scss';
 
 // components
-import MusicProfile from '../MusicProfile';
+import Profile from '../Profile';
 import Tracks from '../Tracks';
 
 class SearchPage extends React.PureComponent {
@@ -67,7 +67,7 @@ class SearchPage extends React.PureComponent {
           <input
             type="text"
             className="container__search-bar__content"
-            placeholder="Search for Music by title"
+            placeholder="Search for Music by: Artist name"
             value={this.state.searchQuery}
             onChange={this.handleInputChange}
             onKeyPress={this.onKeyPress}
@@ -75,13 +75,11 @@ class SearchPage extends React.PureComponent {
           <button
             className="container__search-bar__btn"
             onClick={() => this.onSearch()}
-          >
-            Submit
-          </button>
+          />
         </div>
         {
           this.state.artist &&
-          <MusicProfile
+          <Profile
             artist={this.state.artist}
           />
         }

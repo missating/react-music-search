@@ -1,0 +1,21 @@
+.tracks__heading {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.tracks__container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 25rem 25rem 25rem;
+  grid-template-rows: 25rem 25rem 25rem;
+  width: 100%;
+
+  img {
+    width: 20rem;
+  }
+
+  &-content {
+
+  }
+}
