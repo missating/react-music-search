@@ -1,6 +1,8 @@
 # react-music-search
 This application makes use of spotify-api to allow users search for music
 
+![Sample Gif](https://res.cloudinary.com/dxayftnxb/image/upload/v1552960791/Mar-19-2019_02-57-46_cbt0wh.gif)
+
 # set up
 Basically you have to get an access token from spotify to be able to use their API
 - This explains it all - (https://developer.spotify.com/documentation/web-api/quick-start/)
