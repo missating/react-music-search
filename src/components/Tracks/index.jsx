@@ -42,7 +42,7 @@ class Tracks extends React.Component {
     return (
       <React.Fragment>
         {
-          tracks.length > 0 && <h2 className="tracks__heading">Preview Tracks</h2>
+          tracks.length > 0 && <h2 class="tracks__heading">Preview Tracks</h2>
         }
         <div className="tracks__container">
           {
@@ -50,8 +50,8 @@ class Tracks extends React.Component {
               const trackIcon = track.album.images[0].url;
               return (
                 <div key={index} onClick={() => this.playAudio(track.preview_url)}>
-                  <img src={trackIcon} alt="track-icon" />
-                  <p>{track.name}</p>
+                  <img src={trackIcon} alt="track-icon" className="tracks__container-image" />
+                  <p className="tracks__container-name">{track.name}</p>
                   <div>
                     {
                       this.state.audioUrl === track.preview_url ? <span>||</span> : <span>&#9654;</span>
